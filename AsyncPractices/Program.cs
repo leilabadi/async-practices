@@ -13,7 +13,7 @@ public class Program
         Task task = IoBoundOperationAsync();
         PrintMessage("After getting task for async method");
         await task;
-        PrintMessage("After awaiting async method completion");
+        PrintMessage("Continuation of async method completion");
 
         Console.WriteLine();
 
@@ -25,14 +25,14 @@ public class Program
         });
         PrintMessage("After getting task for lambda Task.Run ");
         await task;
-        PrintMessage("After awaiting lambda Task.Run completion");
+        PrintMessage("Continuation of lambda Task.Run completion");
 
         Console.WriteLine();
 
         task = Task.Run(CpuBoundOperation);
         PrintMessage("After getting task for inline Task.Run");
         await task;
-        PrintMessage("After awaiting inline Task.Run");
+        PrintMessage("Continuation of inline Task.Run");
 
         Console.WriteLine();
 
