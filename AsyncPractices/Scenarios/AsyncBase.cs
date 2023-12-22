@@ -1,7 +1,9 @@
 ﻿namespace Async_Practices.Scenarios;
 
-public class AsyncBase
+public abstract class AsyncBase
 {
+    public abstract Task Run();
+
     protected void PrintMessage(string message)
     {
         Console.WriteLine($"Thread: {Thread.CurrentThread.ManagedThreadId} - {message}");

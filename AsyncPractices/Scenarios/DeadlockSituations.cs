@@ -2,15 +2,15 @@
 
 public class DeadlockSituations : AsyncBase
 {
-    public async Task RunTests()
+    public override async Task Run()
     {
         PrintMessage($"Beginning of {nameof(DeadlockSituations)}");
         Console.WriteLine();
 
         Task task = Task.Run(WaitAsync);
-        PrintMessage("After getting task for method grpoup Task.Run ");
+        PrintMessage("After getting task for method group Task.Run");
         await task;
-        PrintMessage("Continuation of method grpoup Task.Run completion");
+        PrintMessage("Continuation of method group Task.Run");
 
         Console.WriteLine();
 
@@ -20,10 +20,9 @@ public class DeadlockSituations : AsyncBase
             await WaitAsync();
             PrintMessage("End of lambda Task.Run");
         });
-        PrintMessage("After getting task for lambda Task.Run ");
+        PrintMessage("After getting task for lambda Task.Run");
         await task;
-        PrintMessage("Continuation of lambda Task.Run completion");
-
+        PrintMessage("Continuation of lambda Task.Run");
 
         Console.WriteLine();
         PrintMessage($"End of {nameof(DeadlockSituations)}");
